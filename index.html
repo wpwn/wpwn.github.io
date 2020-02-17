@@ -1,0 +1,34 @@
+<html>
+<body>
+<h1>pwn test</h1>
+<button onclick="pwn();">pwn</button>
+<script>
+var cnt = 0;
+var pages = new Array(0);
+
+function mkMemPage(i) {
+  document.write("[*] mkMemPage " + i);
+  var page;
+  page = new Array(i);
+  for (j = 0; j < i; j++) {
+  	page[j] = (((j % 3) + j) % 2) + j
+  }
+  return page;
+}
+
+function writeMemPage(page) {
+ document.write("[*] writeMemPage " + page);
+	pages[window.cnt] = page;
+  window.cnt++;
+  return 0;
+}
+
+function pwn() {
+	counter = 0;
+  for (counter = 0; counter < 65536; counter++) {
+  	writeMemPage(mkMemPage());
+  }
+}
+</script>
+</body>
+</html>
